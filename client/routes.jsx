@@ -1,12 +1,10 @@
 // Dependencies
-import React from 'react'
-
 import finder from './actions/finder'
-import result from './stores/result'
+
 import {App,Home} from './views'
 
 // Public
-let routes= [
+const routes= [
   {
     path: '/',
     component: App,

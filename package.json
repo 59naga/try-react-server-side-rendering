@@ -19,14 +19,16 @@
     "express": "^4.13.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "react-mixin": "^3.0.0",
+    "react-mixin": "^3.0.1",
     "react-router": "^1.0.0-rc3",
     "victorica": "^0.0.0"
   },
   "babel": {
     "optional": [
       "es7.classProperties",
-      "es7.exportExtensions"
+      "es7.exportExtensions",
+      "es7.decorators",
+      "es7.functionBind"
     ]
   },
   "devDependencies": {

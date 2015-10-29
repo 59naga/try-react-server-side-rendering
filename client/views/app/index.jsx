@@ -1,9 +1,10 @@
 // Dependencies
 import React from 'react'
 
+import Title from './title'
+
 // Public
 class App extends React.Component{
-  // isomorphic
   render(){
     let container= (
       <div id="container">
@@ -19,9 +20,9 @@ class App extends React.Component{
         <html>
           <head>
             <meta charSet="UTF-8" />
-            <title>hello world</title>
+            <Title />
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' />
-            <script src="index.js"></script>
+            <script src="bundle.js"></script>
           </head>
           <body>
             <main>{container}</main>

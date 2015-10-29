@@ -1,12 +1,11 @@
 // Dependencies
 import EventEmitter from 'carrack'
+
 import express from 'express'
 import bandcamp from 'band-camp'
 import axios from 'axios'
 
-import result from '../stores/result'
-
-// Public
+// Publish as singleton
 class Finder extends EventEmitter{
   summaries= ({routes,params,location},replaceState,callback)=>{
     let tag= params.tag || 'Vocaloid'
@@ -28,7 +27,7 @@ class Finder extends EventEmitter{
     }
 
     return promise.then((summaries)=>{
-      return result.emit('update',{tag,page,summaries})
+      return this.emit('update',{tag,page,summaries})
     })
     .then(()=>{
       callback()
