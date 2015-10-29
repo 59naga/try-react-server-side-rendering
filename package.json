@@ -1,0 +1,45 @@
+{
+  "name": "try-react-server-side-rendering",
+  "private": true,
+  "browser": {
+    "express": false,
+    "band-camp": false
+  },
+  "scripts": {
+    "start": "babel-node server.jsx",
+    "test": "mocha --watch --compilers jsx:babel/register \"test/*.jsx\""
+  },
+  "dependencies": {
+    "axios": "^0.7.0",
+    "babel": "^5.8.29",
+    "babelify": "^6.4.0",
+    "band-camp": "^0.0.3",
+    "browserify-middleware": "^7.0.0",
+    "carrack": "^0.0.1",
+    "express": "^4.13.3",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-mixin": "^3.0.0",
+    "react-router": "^1.0.0-rc3",
+    "victorica": "^0.0.0"
+  },
+  "babel": {
+    "optional": [
+      "es7.classProperties",
+      "es7.exportExtensions"
+    ]
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/59naga/try-react-server-side-rendering.git"
+  },
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/59naga/try-react-server-side-rendering/issues"
+  },
+  "homepage": "https://github.com/59naga/try-react-server-side-rendering#readme"
+}
