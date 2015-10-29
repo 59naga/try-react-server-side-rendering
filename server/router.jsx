@@ -26,7 +26,7 @@ const router= routes=>{
 
       let route
       if(isClient){
-        route= ReactDOMServer.renderToStaticMarkup(<App/>)
+        route= ReactDOMServer.renderToStaticMarkup(<App />)
       }
       else{
         route= ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps} />)
