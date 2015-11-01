@@ -7,11 +7,12 @@ export default {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx','.json']
+    unsafeCache: true,
+    extensions: ['', '.js', '.jsx','.json'],
   },
   module: {
     loaders: [
