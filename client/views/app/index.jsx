@@ -22,7 +22,7 @@ class App extends React.Component{
             <meta charSet="UTF-8" />
             <Title />
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' />
-            <script src="bundle.js"></script>
+            <script src="/bundle.js"></script>
           </head>
           <body>
             <main>{container}</main>

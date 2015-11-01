@@ -1,8 +1,10 @@
 // Dependencies
 import express from 'express'
-import browserify from 'browserify-middleware'
-import finder from './client/actions/finder'
+import webpack from 'webpack'
+import webpackConfig from './webpack.config.babel'
+import webpackDevMiddleware from 'webpack-dev-middleware'
 
+import finder from './client/actions/finder'
 import router from './server/router'
 import routes from './client/routes'
 
@@ -12,17 +14,20 @@ if(process.env.PORT==null){
   process.env.PORT= 59798
 }
 
-// setup browserify middleware
-browserify.settings('basedir',__dirname)
-browserify.settings('transform',['babelify'])
-browserify.settings('extensions',['.js','.json','.jsx'])
-
 // setup client environment
 const app= express()
 app.get('/favicon.ico',(req,res)=>{
   res.redirect('https://raw.githubusercontent.com/59naga/fixture-images/master/still.GIF')
 })
-app.get('/bundle.js',browserify('./client.jsx'))
+app.use((req,res,next)=>{
+  if(process.env.NODE_ENV==='production'){
+    next()// expect a `bundle.js` of static file.
+  }
+  else{
+    webpackDevMiddleware(webpack(webpackConfig))(req,res,next)
+  }
+})
+app.use(express.static('.'))
 app.use(finder.middleware())
 app.use(router(routes))
 

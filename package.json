@@ -5,35 +5,33 @@
     "express": false,
     "band-camp": false
   },
+  "main": "server.jsx",
   "scripts": {
     "start": "babel-node server.jsx",
-    "test": "mocha --watch --compilers jsx:babel/register \"test/*.jsx\""
+    "test": "mocha --watch --compilers jsx:babel/register \"test/*.jsx\"",
+
+    "build": "webpack -optimize-minimize"
   },
   "dependencies": {
     "axios": "^0.7.0",
     "babel": "^5.8.29",
-    "babelify": "^6.4.0",
+    "babel-loader": "^5.3.3",
     "band-camp": "^0.0.3",
-    "browserify-middleware": "^7.0.0",
     "carrack": "^0.0.1",
     "express": "^4.13.3",
+    "history": "^1.13.0",
+    "json-loader": "^0.5.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-mixin": "^3.0.1",
     "react-router": "^1.0.0-rc3",
     "velocity-react": "^1.1.1",
-    "victorica": "^0.0.0"
+    "victorica": "^0.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0"
   },
   "babel": {
-    "optional": [
-      "es7.classProperties",
-      "es7.exportExtensions",
-      "es7.decorators",
-      "es7.functionBind"
-    ]
-  },
-  "devDependencies": {
-    "mocha": "^2.3.3"
+    "stage": 0
   },
   "repository": {
     "type": "git",
