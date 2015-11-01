@@ -2,6 +2,7 @@
 import React from 'react'
 
 import FoundSubscriber from './abstract/found-subscriber'
+import {VelocityTransitionGroup} from 'velocity-react'
 
 import {Link} from 'react-router'
 
@@ -20,9 +21,8 @@ class Home extends FoundSubscriber{
     }
 
     let links= []
-    let query
     if(this.state.page>1){
-      query= {page:this.state.page-1}
+      let query= {page:this.state.page-1}
 
       links.push(
         <Link key={query.page} to={'/'+this.state.tag} query={query}>
@@ -31,7 +31,7 @@ class Home extends FoundSubscriber{
       )
     }
     if(summaries.length===40){
-      query= {page:this.state.page+1}
+      let query= {page:this.state.page+1}
 
       links.push(
         <Link key={query.page} to={'/'+this.state.tag} query={query}>
@@ -46,7 +46,25 @@ class Home extends FoundSubscriber{
           <h2>{this.state.tag.toUpperCase()}</h2>
           <nav>{links}</nav>
         </header>
-        <ul>{summaries}</ul>
+        <ul>
+          <VelocityTransitionGroup
+            runOnMount={true}
+            enter={
+              {
+                animation: 'fadeIn',
+                stagger: 100,
+              }
+            }
+            leave={
+              {
+                animation: 'fadeOut',
+                stagger: 100,
+              }
+            }
+          >
+            {summaries}
+          </VelocityTransitionGroup>
+        </ul>
       </article>
     )
   }
